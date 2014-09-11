@@ -1,0 +1,46 @@
+{% extends "aristotle_mdr/managedContent.html" %}
+{% load inplace_edit %}
+
+{% block asideContent %}
+    <dl>
+        {% if item.implementationStartDate %}
+        <dt>Start Date</dt>
+        <dd>{{ item.implementationStartDate }}</dd>
+        {% endif %}
+        {% if item.implementationEndDate %}
+        <dt>End Date</dt>
+        <dd>{{ item.implementationEndDate }}</dd>
+        {% endif %}
+    </dl>
+{% endblock %}
+
+{% block objSpecific %}
+<h2>Adherence to quality guidelines</h2>
+<dl class="qualityStatement">
+    {% if item.timeliness %}
+    <dt>Timeliness</dt>
+    <dd>{% inplace_edit 'item.timeliness' adaptor='aristotle' %}</dd>
+    {% endif %}
+    {% if item.accessibility %}
+    <dt>Accessibility</dt>
+    <dd>{% inplace_edit 'item.accessibility' adaptor='aristotle' %}</dd>
+    {% endif %}
+    {% if item.interpretability %}
+    <dt>Interpretability</dt>
+    <dd>{% inplace_edit 'item.interpretability' adaptor='aristotle' %}</dd>
+    {% endif %}
+    {% if item.relevance %}
+    <dt>Relevance</dt>
+    <dd>{% inplace_edit 'item.relevance' adaptor='aristotle' %}</dd>
+    {% endif %}
+    {% if item.accuracy %}
+    <dt>Accuracy</dt>
+    <dd>{% inplace_edit 'item.accuracy' adaptor='aristotle' %}</dd>
+    {% endif %}
+    {% if item.coherence %}
+    <dt>Coherence</dt>
+    <dd>{% inplace_edit 'item.coherence' adaptor='aristotle' %}</dd>
+    {% endif %}
+</dl>
+
+{% endblock %}
