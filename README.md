@@ -1,2 +1,0 @@
-comet-indicator-registry
-========================
