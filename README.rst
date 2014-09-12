@@ -1,9 +1,10 @@
 =====
-Comet Indicator Registry Plug-in (Comet-IRP)
+Comet Indicator Registry (Comet-IR)
 =====
 
-The Comet Indicator Registry Plug-in is an open-source extension for the Aristotle Metadata Registry that
-extends the information model of the ISO/IEC 11179:2013 specification to support the
+The Comet Indicator Registry is an open-source extension for the
+`Aristotle Metadata Registry <https://github.com/LegoStormtroopr/aristotle-metadata-registry/>`_
+that extends the information model of the ISO/IEC 11179:2013 specification to support the
 specialised needs of health management registries.
 
 Comet adds the following administered items:

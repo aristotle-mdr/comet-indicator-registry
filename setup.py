@@ -13,7 +13,7 @@ setup(
     packages=['aristotle_mdr'],
     include_package_data=True,
     license='BSD Licence',
-    description='The Comet Indicator Registry Plug-in is an open-source extension for the Aristotle Metadata Registry that adds objects that support the needs of health management registries.',
+    description='The Comet Indicator Registry is an extension for the Aristotle Metadata Registry to support the specialised needs of health management registries.',
     long_description=README,
     url='http://github.com/LegoStormtroopr/comet-indicator-registry/',
     author='Samuel Spencer',

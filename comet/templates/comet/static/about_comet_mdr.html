@@ -1,16 +1,16 @@
 {% extends "aristotle_mdr/base.html" %}
 
-{% block title %}About: Comet Health MetaData Registry{% endblock %}
+{% block title %}About: Comet Indicator Registry{% endblock %}
 
 {% block content %}
-<h1><a href="#">Comet Health MetaData Registry</a></h1>
+<h1><a href="#">Comet Indicator Registry</a></h1>
 
 <div>
-<p>The Comet Health MetaData Registry is an extension set for the <a href="">Aristotle MetaData Registry</a>
+<p>The Comet Indicator Registry is an extension set for the <a href="https://github.com/LegoStormtroopr/aristotle-metadata-registry">Aristotle MetaData Registry</a>
 that provides additional items necessary for tracking the performance of entities in the health context.
 </p>
 
-<p><b>Comet</b> adds the following <a href='{% url "aristotle:about" template="administeredItems" %}'>administered items</a>:
+<p><b>Comet</b> adds the following <a href='{% url "aristotle:about" template="managedItems" %}'>managed items</a>:
 <ul>
     <li>
         <a href='{% url "comet:about" template="datasource" %}'>Data Sources</a>
@@ -29,7 +29,7 @@ that provides additional items necessary for tracking the performance of entitie
     </li>
 </ul>
 
-<b>Comet</b> also adds the following <a href='{% url "aristotle:about" template="nonadministeredItems" %}'>non-administered items</a>:
+<b>Comet</b> also adds the following <a href='{% url "aristotle:about" template="unmanagedItems" %}'>unmanaged items</a>:
 <ul>
      <li>
         <a href=''>Frameworks</a>
