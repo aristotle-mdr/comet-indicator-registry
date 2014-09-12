@@ -36,9 +36,9 @@ Quick start
    If you want to take advantage of Aristotle's access-key shortcut improvements for the admin interface,
    make sure it is installed *before* `grappelli`.
 
-   Comet-IRP adds a replacement templates for some 11179 Objects, such as Data Elements, to show
+   Comet Indicator Registry adds a replacement templates for some 11179 Objects, such as Data Elements, to show
    associated indicator and related data information on standard Aristotle pages.
-   For these overrides to be active, Comet-IRP must be installed before aristotle like this::
+   For these overrides to be active, Comet must be installed before aristotle like this::
 
     INSTALLED_APPS = (
         ...
@@ -48,7 +48,7 @@ Quick start
     )
 
 
-2. Include the Comet-IRP and Aristotle URLconfs in your project urls.py like this::
+2. Include the Comet and Aristotle URLconfs in your project urls.py like this::
 
     url(r'^comet/', include('comet.urls')),
     url(r'^/', include('aristotle_mdr.urls')),
