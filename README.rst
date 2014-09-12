@@ -8,15 +8,16 @@ specialised needs of health management registries.
 
 Comet adds the following administered items:
 
- * Data Sources
- * Indicators
- * Indicator Sets
- * Outcome Areas
- * Quality Statements
+* Data Sources
+* Indicators
+* Indicator Sets
+* Outcome Areas
+* Quality Statements
 
 Comet also adds the following non-administered items:
 
- * Frameworks
+* Frameworks
+
 
 Quick start
 -----------
