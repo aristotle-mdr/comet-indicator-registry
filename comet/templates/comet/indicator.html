@@ -1,58 +1,58 @@
-{% extends "aristotle_mdr/managedContent.html" %}
+{% extends "aristotle_mdr/concepts/managedContent.html" %}
 {% load inplace_edit %}
 {% load aristotle_tags %}
 
 {% block objSpecific %}
 
 <h2>Calculation rules</h2>
-    {% inplace_edit 'item.computationDescription' adaptor='aristotle' %}    
+    {% inplace_edit 'item.computationDescription' adaptor='aristotle' %}
     <h3>Computation Rule:
     </h3>
         <pre>{% inplace_edit 'item.computation' %}</pre>
     <h3>Numerators</h3>
-        {% inplace_edit 'item.numeratorText' %}    
+        {% inplace_edit 'item.numeratorText' %}
         <ul>
         {% for num in item.numerators.all %}
-            <li>{% include "aristotle_mdr/itemLink.html" with item=num showType=False %}
+            <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=num showType=False %}
         {% endfor %}
         </ul>
     <h3>Denominators</h3>
-        {% inplace_edit 'item.denominatorText' %}    
+        {% inplace_edit 'item.denominatorText' %}
         <ul>
         {% for denom in item.denominators.all %}
-            <li>{% include "aristotle_mdr/itemLink.html" with item=denom showType=False %}
+            <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=denom showType=False %}
         {% endfor %}
         </ul>
 <h2>Disaggreation</h2>
-    {% inplace_edit 'item.disaggregationDescription' adaptor='aristotle' %}    
+    {% inplace_edit 'item.disaggregationDescription' adaptor='aristotle' %}
         <ul>
         {% for disagg in item.disaggregators.all %}
-            <li>{% include "aristotle_mdr/itemLink.html" with item=disagg showType=False %}
+            <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=disagg showType=False %}
         {% endfor %}
         </ul>
 {% if item.dataElementConcept or item.ValueDomain %}
 <h2>Components</h2>
     {% if view == "technical" %}
     <h3>Data Element Concept -
-        {% include "aristotle_mdr/itemLink.html" with item=item.dataElementConcept %}</h3>
-        {% include "aristotle_mdr/inlinedetails.html" with item=item.dataElementConcept name=False %}
+        {% include "aristotle_mdr/helpers/itemLink.html" with item=item.dataElementConcept %}</h3>
+        {% include "aristotle_mdr/helpers/inlineDetails.html" with item=item.dataElementConcept name=False %}
         <dl class="additionaldetails">
             <dt>Object Class</dt>
             <dd>
-                {% include "aristotle_mdr/inlinedetails.html" with item=item.dataElementConcept.objectClass %}
+                {% include "aristotle_mdr/helpers/inlineDetails.html" with item=item.dataElementConcept.objectClass %}
             </dd>
             <dt>Property</dt>
             <dd>
-                {% include "aristotle_mdr/inlinedetails.html" with item=item.dataElementConcept.property %}
+                {% include "aristotle_mdr/helpers/inlineDetails.html" with item=item.dataElementConcept.property %}
             </dd>
         </dl>
     {% endif %}
     {% if item.valueDomain %}
     <h3>Value Domain -
-        {% include "aristotle_mdr/itemLink.html" with item=item.valueDomain %}</h3>
-        {% include "aristotle_mdr/inlinedetails.html" with item=item.valueDomain name=False %}
+        {% include "aristotle_mdr/helpers/itemLink.html" with item=item.valueDomain %}</h3>
+        {% include "aristotle_mdr/helpers/inlineDetails.html" with item=item.valueDomain name=False %}
         <h4>Representation</h4>
-        {% include "aristotle_mdr/valueDomainRepresentation.html" with item=item.valueDomain %}
+        {% include "aristotle_mdr/concepts/valueDomainRepresentation.html" with item=item.valueDomain %}
     {% endif %}
 {% endif %}
 {% endblock %}

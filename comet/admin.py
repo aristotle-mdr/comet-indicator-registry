@@ -15,13 +15,6 @@ class QualityStatementAdmin(aristotle_admin.ConceptAdmin):
                 {'fields': ['implementationStartDate','implementationEndDate']}),
     ]
 
-class DataSourceAdmin(aristotle_admin.ConceptAdmin):
-    fieldsets = aristotle_admin.ConceptAdmin.fieldsets + [
-            ('Data Source',
-                {'fields': ['linkToData','custodian','frequency','qualityStatement']}),
-    ]
-
 # Register your models here.
 admin.site.register(comet.models.Indicator,IndicatorAdmin)
 admin.site.register(comet.models.QualityStatement,QualityStatementAdmin)
-admin.site.register(comet.models.DataSource,DataSourceAdmin)

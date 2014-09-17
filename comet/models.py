@@ -52,20 +52,6 @@ class QualityStatement(aristotle.models.concept):
     implementationStartDate = models.DateField(blank=True,null=True)
     implementationEndDate = models.DateField(blank=True,null=True)
 
-FREQUENCY = Choices( ('annually', _('Annually')),
-        ('biannually', _('Biannually')),
-        ('quarterly', _('Quarterly')),
-        ('monthly', _('Monthly')),
-        ('adhoc', _('Ad hoc')),
-        ('notStated', _('Not stated')),
-    )
-class DataSource(aristotle.models.concept):
-    template = "comet/datasource.html"
-    qualityStatement = models.ForeignKey(QualityStatement,blank=True,null=True)
-    linkToData = models.URLField(blank=True)
-    custodian = models.TextField(max_length=256,blank=True)
-    frequency = models.CharField(choices=FREQUENCY,default=FREQUENCY.notStated,max_length=20)
-
 class Framework(aristotle.models.unmanagedObject):
     template = "comet/framework.html"
     parentFramework = models.ForeignKey('Framework',blank=True,null=True,related_name="childFrameworks")

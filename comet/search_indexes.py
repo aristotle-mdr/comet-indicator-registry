@@ -19,8 +19,3 @@ class IndicatorSet(conceptIndex, indexes.Indexable):
 class OutcomeArea(conceptIndex, indexes.Indexable):
     def get_model(self):
         return models.OutcomeArea
-
-class DataSource(conceptIndex, indexes.Indexable):
-    def get_model(self):
-        return models.DataSource
-
