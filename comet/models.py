@@ -76,6 +76,8 @@ def defaultData():
     for name,desc in indicatorSetTypes:
         ist,created = IndicatorSetType.objects.get_or_create(name=name,description=desc)
 
+def testData():
+    pass
 
 def importMeteor():
     importer.importMeteor()
