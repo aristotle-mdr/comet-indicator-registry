@@ -7,7 +7,6 @@ from model_utils import Choices
 from tinymce.models import HTMLField
 import aristotle_mdr as aristotle
 
-import importer
 
 class IndicatorType(aristotle.models.concept):
     pass
@@ -78,6 +77,3 @@ def defaultData():
 
 def testData():
     pass
-
-def importMeteor():
-    importer.importMeteor()
