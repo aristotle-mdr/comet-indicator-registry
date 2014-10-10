@@ -2,8 +2,6 @@ from django.conf.urls import include, patterns, url
 
 from comet import views#,forms
 from django.views.generic import TemplateView
-from django.contrib import admin
-admin.autodiscover()
 
 urlpatterns = patterns('comet.views',
     url(r'^/?$', TemplateView.as_view(template_name='comet/static/about_comet_mdr.html')),
@@ -15,4 +13,3 @@ urlpatterns = patterns('comet.views',
     url(r'^about/(?P<template>.+)/?$', views.DynamicTemplateView.as_view(), name="about"),
     url(r'^about/?$', TemplateView.as_view(template_name='comet/static/about_comet_mdr.html'), name="about"),
 )
-

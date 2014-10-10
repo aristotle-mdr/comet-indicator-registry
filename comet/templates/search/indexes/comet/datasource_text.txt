@@ -1,3 +1,0 @@
-{% include "search/indexes/aristotle_mdr/managedobject_text.txt" %}
-
-{{ object.custodian }}

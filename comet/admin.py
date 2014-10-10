@@ -7,10 +7,12 @@ class IndicatorAdmin(aristotle_admin.DataElementAdmin):
             ('Computation', {'fields': ['numerators','denominators']}),
     ]
 
-class QualityStatementAdmin(aristotle_admin.ConceptAdmin):
-    def has_add_permission(self, request):
-        return True
+class IndicatorSetAdmin(aristotle_admin.ConceptAdmin):
+    fieldsets = aristotle_admin.DataElementAdmin.fieldsets + [
+            ('Indicators', {'fields': ['indicatorSetType','indicators']}),
+    ]
 
+class QualityStatementAdmin(aristotle_admin.ConceptAdmin):
     fieldsets = aristotle_admin.ConceptAdmin.fieldsets + [
             ('Data Quality Guidelines',
                 {'fields': ['timeliness','accessibility','interpretability','relevance','accuracy','coherence']}),
@@ -19,5 +21,8 @@ class QualityStatementAdmin(aristotle_admin.ConceptAdmin):
     ]
 
 # Register your models here.
+admin.site.register(comet.models.Framework)
+admin.site.register(comet.models.IndicatorSet)
 admin.site.register(comet.models.Indicator,IndicatorAdmin)
 admin.site.register(comet.models.QualityStatement,QualityStatementAdmin)
+admin.site.register(comet.models.OutcomeArea,aristotle_admin.ConceptAdmin)

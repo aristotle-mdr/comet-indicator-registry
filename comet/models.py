@@ -7,7 +7,6 @@ from model_utils import Choices
 from tinymce.models import HTMLField
 import aristotle_mdr as aristotle
 
-import importer
 
 class IndicatorType(aristotle.models.concept):
     pass
@@ -23,8 +22,8 @@ class Indicator(aristotle.models.concept):
     denominators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_demoninator")
     disaggregators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_disaggregator")
 
-    numeratorText = HTMLField(blank=True)
-    denominatorText = HTMLField(blank=True)
+    numeratorText = models.TextField(blank=True)
+    denominatorText = models.TextField(blank=True)
     computation = models.TextField(blank=True)
     computationDescription = HTMLField(blank=True)
     rationale = HTMLField(blank=True)
@@ -78,6 +77,3 @@ def defaultData():
 
 def testData():
     pass
-
-def importMeteor():
-    importer.importMeteor()

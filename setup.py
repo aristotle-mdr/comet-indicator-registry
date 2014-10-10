@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='django-aristotle-comet-indicator-registry',
     version='0.1',
-    packages=['aristotle_mdr'],
+    packages=['comet'],
     include_package_data=True,
     license='BSD Licence',
     description='The Comet Indicator Registry is an extension for the Aristotle Metadata Registry to support the specialised needs of health management registries.',
@@ -28,4 +28,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    install_requires = [
+        'aristotle_mdr'
+    ]
 )
