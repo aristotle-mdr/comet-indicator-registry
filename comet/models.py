@@ -23,8 +23,8 @@ class Indicator(aristotle.models.concept):
     denominators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_demoninator")
     disaggregators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_disaggregator")
 
-    numeratorText = models.TextField(blank=True)
-    denominatorText = models.TextField(blank=True)
+    numeratorText = HTMLField(blank=True)
+    denominatorText = HTMLField(blank=True)
     computation = models.TextField(blank=True)
     computationDescription = HTMLField(blank=True)
     rationale = HTMLField(blank=True)

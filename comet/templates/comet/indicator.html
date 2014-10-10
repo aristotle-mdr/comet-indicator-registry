@@ -10,14 +10,16 @@
     </h3>
         <pre>{% inplace_edit 'item.computation' %}</pre>
     <h3>Numerators</h3>
-        {% inplace_edit 'item.numeratorText' %}
+        {% inplace_edit 'item.numeratorText' adaptor='aristotle' %}
+        <h4>Numerator data elements</h4>
         <ul>
         {% for num in item.numerators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=num showType=False %}
         {% endfor %}
         </ul>
     <h3>Denominators</h3>
-        {% inplace_edit 'item.denominatorText' %}
+        {% inplace_edit 'item.denominatorText' adaptor='aristotle' %}
+        <h4>Denominator data elements</h4>
         <ul>
         {% for denom in item.denominators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=denom showType=False %}
@@ -25,6 +27,7 @@
         </ul>
 <h2>Disaggreation</h2>
     {% inplace_edit 'item.disaggregationDescription' adaptor='aristotle' %}
+        <h3>Disagregation data elements</h3>
         <ul>
         {% for disagg in item.disaggregators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=disagg showType=False %}

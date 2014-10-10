@@ -8,6 +8,9 @@ class IndicatorAdmin(aristotle_admin.DataElementAdmin):
     ]
 
 class QualityStatementAdmin(aristotle_admin.ConceptAdmin):
+    def has_add_permission(self, request):
+        return True
+
     fieldsets = aristotle_admin.ConceptAdmin.fieldsets + [
             ('Data Quality Guidelines',
                 {'fields': ['timeliness','accessibility','interpretability','relevance','accuracy','coherence']}),
