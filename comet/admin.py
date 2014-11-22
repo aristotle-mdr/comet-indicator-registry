@@ -20,7 +20,9 @@ class QualityStatementAdmin(aristotle_admin.ConceptAdmin):
                 {'fields': ['implementationStartDate','implementationEndDate']}),
     ]
 
-# Register your models here.
+admin.site.register(comet.models.IndicatorSetType)
+admin.site.register(comet.models.IndicatorType)
+
 admin.site.register(comet.models.Framework)
 admin.site.register(comet.models.IndicatorSet)
 admin.site.register(comet.models.Indicator,IndicatorAdmin)
