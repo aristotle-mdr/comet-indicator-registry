@@ -4,7 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext as _
 from model_utils import Choices
 
-from tinymce.models import HTMLField
+from aristotle_mdr.models import RichTextField
 import aristotle_mdr as aristotle
 
 
@@ -25,9 +25,9 @@ class Indicator(aristotle.models.concept):
     numeratorText = models.TextField(blank=True)
     denominatorText = models.TextField(blank=True)
     computation = models.TextField(blank=True)
-    computationDescription = HTMLField(blank=True)
-    rationale = HTMLField(blank=True)
-    disaggregationDescription = HTMLField(blank=True)
+    computationDescription = RichTextField(blank=True)
+    rationale = RichTextField(blank=True)
+    disaggregationDescription = RichTextField(blank=True)
 
 class IndicatorSetType(aristotle.models.unmanagedObject):
     pass
@@ -42,12 +42,12 @@ class OutcomeArea(aristotle.models.concept):
 
 class QualityStatement(aristotle.models.concept):
     template = "comet/qualitystatement.html"
-    timeliness  = HTMLField(blank=True)
-    accessibility  = HTMLField(blank=True)
-    interpretability  = HTMLField(blank=True)
-    relevance  = HTMLField(blank=True)
-    accuracy  = HTMLField(blank=True)
-    coherence  = HTMLField(blank=True)
+    timeliness  = RichTextField(blank=True)
+    accessibility  = RichTextField(blank=True)
+    interpretability  = RichTextField(blank=True)
+    relevance  = RichTextField(blank=True)
+    accuracy  = RichTextField(blank=True)
+    coherence  = RichTextField(blank=True)
     implementationStartDate = models.DateField(blank=True,null=True)
     implementationEndDate = models.DateField(blank=True,null=True)
 
