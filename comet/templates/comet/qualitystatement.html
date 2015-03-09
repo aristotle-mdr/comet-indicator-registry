@@ -1,5 +1,4 @@
 {% extends "aristotle_mdr/concepts/managedContent.html" %}
-{% load inplace_edit %}
 
 {% block asideContent %}
     <dl>
@@ -19,27 +18,27 @@
 <dl class="qualityStatement">
     {% if item.timeliness %}
     <dt>Timeliness</dt>
-    <dd>{% inplace_edit 'item.timeliness' adaptor='aristotle' %}</dd>
+    <dd>{{ item.timeliness| safe }}</dd>
     {% endif %}
     {% if item.accessibility %}
     <dt>Accessibility</dt>
-    <dd>{% inplace_edit 'item.accessibility' adaptor='aristotle' %}</dd>
+    <dd>{{ item.accessibility| safe }}</dd>
     {% endif %}
     {% if item.interpretability %}
     <dt>Interpretability</dt>
-    <dd>{% inplace_edit 'item.interpretability' adaptor='aristotle' %}</dd>
+    <dd>{{ item.interpretability| safe }}</dd>
     {% endif %}
     {% if item.relevance %}
     <dt>Relevance</dt>
-    <dd>{% inplace_edit 'item.relevance' adaptor='aristotle' %}</dd>
+    <dd>{{ item.relevance| safe }}</dd>
     {% endif %}
     {% if item.accuracy %}
     <dt>Accuracy</dt>
-    <dd>{% inplace_edit 'item.accuracy' adaptor='aristotle' %}</dd>
+    <dd>{{ item.accuracy| safe }}</dd>
     {% endif %}
     {% if item.coherence %}
     <dt>Coherence</dt>
-    <dd>{% inplace_edit 'item.coherence' adaptor='aristotle' %}</dd>
+    <dd>{{ item.coherence| safe }}</dd>
     {% endif %}
 </dl>
 
