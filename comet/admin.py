@@ -1,30 +1,28 @@
 from django.contrib import admin
-from aristotle_mdr import admin as aristotle_admin # Must include 'admin' directly, otherwise causes issues.
 import comet
+from aristotle_mdr.register import register_concept
 
-class IndicatorAdmin(aristotle_admin.DataElementAdmin):
-    fieldsets = aristotle_admin.DataElementAdmin.fieldsets + [
-            ('Computation', {'fields': ['numerators','denominators']}),
-    ]
+register_concept(comet.models.IndicatorSet)
+register_concept(comet.models.OutcomeArea)
 
-class IndicatorSetAdmin(aristotle_admin.ConceptAdmin):
-    fieldsets = aristotle_admin.DataElementAdmin.fieldsets + [
-            ('Indicators', {'fields': ['indicatorSetType','indicators']}),
-    ]
+register_concept(comet.models.Indicator,
+    extra_fieldsets = [
+        ('Components', {'fields': ['dataElementConcept','valueDomain']}),
+        ('Computation', {'fields': ['numerators','denominators']}),
+        ]
+    )
 
-class QualityStatementAdmin(aristotle_admin.ConceptAdmin):
-    fieldsets = aristotle_admin.ConceptAdmin.fieldsets + [
+
+register_concept(comet.models.QualityStatement,
+    extra_fieldsets = [
             ('Data Quality Guidelines',
                 {'fields': ['timeliness','accessibility','interpretability','relevance','accuracy','coherence']}),
             ('Implementation dates',
                 {'fields': ['implementationStartDate','implementationEndDate']}),
     ]
+)
 
 admin.site.register(comet.models.IndicatorSetType)
 admin.site.register(comet.models.IndicatorType)
 
 admin.site.register(comet.models.Framework)
-admin.site.register(comet.models.IndicatorSet)
-admin.site.register(comet.models.Indicator,IndicatorAdmin)
-admin.site.register(comet.models.QualityStatement,QualityStatementAdmin)
-admin.site.register(comet.models.OutcomeArea,aristotle_admin.ConceptAdmin)
