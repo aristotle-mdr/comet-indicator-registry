@@ -29,6 +29,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires = [
-        'egg=django-aristotle-metadata-registry'
+        'django-aristotle-metadata-registry'
     ]
 )
