@@ -65,7 +65,7 @@ def defaultData():
        ]
     print "Adding indicator types"
     for name,desc in indicatorTypes:
-        it,created = IndicatorType.objects.get_or_create(name=name,description=desc)
+        it,created = IndicatorType.objects.get_or_create(name=name,definition=desc)
     indicatorSetTypes = [
        ("COAG-IGA","This includes indicators outlined in the Council of Australian government (COAG) Intergovernmental Agreement (IGA) on Federal Financial Relations relevant to national reporting on health, housing assistance and community services. The overall objective of these agreements is the improvement of the well-being of all Australians."),
        ("COAG-NP","The Council of Australian Governments (COAG) has agreed to a new form of payment called National Partnership (NP) payments to fund specific projects and to facilitate and/or reward States that deliver on nationally-significant reforms."),
@@ -73,7 +73,7 @@ def defaultData():
        ]
     print "Adding indicator set types"
     for name,desc in indicatorSetTypes:
-        ist,created = IndicatorSetType.objects.get_or_create(name=name,description=desc)
+        ist,created = IndicatorSetType.objects.get_or_create(name=name,definition=desc)
 
 def testData():
     pass
