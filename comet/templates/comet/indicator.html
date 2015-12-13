@@ -2,34 +2,45 @@
 {% load aristotle_tags %}
 
 {% block objSpecific %}
+{% if item.outcomeArea %}
+<h2>Outcome Area</h2>
+{% include "aristotle_mdr/helpers/itemLink.html" with item=item.outcomeArea showType=False %}
+{% endif %}
+
+{% if item.rationale %}
+<h2>Rationale</h2>
+<p>{{ item.rationale|safe }}</p>
+{% endif %}
 
 <h2>Calculation rules</h2>
     {{ item.computationDescription|safe }}
+    {% if item.computation %}
     <h3>Computation Rule:
     </h3>
         <pre>{{ item.computation }}</pre>
+    {% endif %}
     <h3>Numerators</h3>
-        {{ item.numeratorText }}
+        {{ item.numeratorText|safe }}
         <ul>
         {% for num in item.numerators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=num showType=False %}
         {% endfor %}
         </ul>
     <h3>Denominators</h3>
-        {{ item.denominatorText }}
+        {{ item.denominatorText|safe }}
         <ul>
         {% for denom in item.denominators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=denom showType=False %}
         {% endfor %}
         </ul>
 <h2>Disaggreation</h2>
-    {{ item.disaggregationDescription }}
+    {{ item.disaggregationDescription|safe }}
         <ul>
         {% for disagg in item.disaggregators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=disagg showType=False %}
         {% endfor %}
         </ul>
-{% if item.dataElementConcept or item.ValueDomain %}
+{% if item.dataElementConcept or item.valueDomain %}
 <h2>Components</h2>
     {% if view == "technical" %}
     <h3>Data Element Concept -

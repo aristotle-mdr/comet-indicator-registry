@@ -16,6 +16,7 @@ class Indicator(aristotle.models.concept):
     template = "comet/indicator.html"
     dataElementConcept = models.ForeignKey(aristotle.models.DataElementConcept,verbose_name = "Data Element Concept",blank=True,null=True)
     valueDomain = models.ForeignKey(aristotle.models.ValueDomain,verbose_name = "Value Domain",blank=True,null=True)
+    outcomeArea = models.ForeignKey('OutcomeArea',blank=True,null=True)
 
     indicatorType = models.ForeignKey(IndicatorType,blank=True,null=True)
     numerators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_numerator")
@@ -38,7 +39,7 @@ class IndicatorSet(aristotle.models.concept):
     indicatorSetType = models.ForeignKey(IndicatorSetType,blank=True,null=True)
 
 class OutcomeArea(aristotle.models.concept):
-    pass
+    template = "comet/outcomearea.html"
 
 class QualityStatement(aristotle.models.concept):
     template = "comet/qualitystatement.html"
