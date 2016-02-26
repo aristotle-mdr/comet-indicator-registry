@@ -13,9 +13,9 @@ setup(
     packages=['comet'],
     include_package_data=True,
     license='BSD Licence',
-    description='The Comet Indicator Registry is an extension for the Aristotle Metadata Registry to support the specialised needs of health management registries.',
+    description='Pythias is a extension for the Aristotle MetaData Registry that adds adding user management, including password expiry, and lockout functionality.',
     long_description=README,
-    url='http://github.com/LegoStormtroopr/comet-indicator-registry/',
+    url='https://github.com/aristotle-mdr/pythias-user-management',
     author='Samuel Spencer',
     author_email='sam@sqbl.org',
     classifiers=[
@@ -29,6 +29,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires = [
-        'django-aristotle-metadata-registry'
+        'django-aristotle-metadata-registry',
+        'django-axes'
     ]
 )

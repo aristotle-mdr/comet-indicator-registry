@@ -7,8 +7,9 @@ register_concept(comet.models.OutcomeArea)
 
 register_concept(comet.models.Indicator,
     extra_fieldsets = [
+        ('Metadata', {'fields': ['outcomeArea','indicatorType']}),
         ('Components', {'fields': ['dataElementConcept','valueDomain']}),
-        ('Computation', {'fields': ['numerators','denominators']}),
+        ('Computation', {'fields': ['numerators','denominators','disaggregators']}),
         ]
     )
 
