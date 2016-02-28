@@ -13,28 +13,29 @@
 {% endif %}
 
 <h2>Calculation rules</h2>
-    {{ item.computationDescription|safe }}
-    {% if item.computation %}
+    {{ item.computation_description|safe }}
+    {% if item.numerator_computation or item.denominator_computation %}
     <h3>Computation Rule:
     </h3>
-        <pre>{{ item.computation }}</pre>
+        <pre>{{ item.numerator_computation }}</pre>
+        <pre>{{ item.denominator_computation }}</pre>
     {% endif %}
     <h3>Numerators</h3>
-        {{ item.numeratorText|safe }}
+        {{ item.numerator_description|safe }}
         <ul>
         {% for num in item.numerators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=num showType=False %}
         {% endfor %}
         </ul>
     <h3>Denominators</h3>
-        {{ item.denominatorText|safe }}
+        {{ item.denominator_description|safe }}
         <ul>
         {% for denom in item.denominators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=denom showType=False %}
         {% endfor %}
         </ul>
 <h2>Disaggreation</h2>
-    {{ item.disaggregationDescription|safe }}
+    {{ item.disaggregation_description|safe }}
         <ul>
         {% for disagg in item.disaggregators.all %}
             <li>{% include "aristotle_mdr/helpers/itemLink.html" with item=disagg showType=False %}

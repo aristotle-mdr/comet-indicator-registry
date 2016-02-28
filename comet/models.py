@@ -14,14 +14,36 @@ class IndicatorType(aristotle.models.concept):
 # Subclassing from DataElement causes indicators to present as DataElements, which isn't quite right.
 class Indicator(aristotle.models.concept):
     template = "comet/indicator.html"
-    dataElementConcept = models.ForeignKey(aristotle.models.DataElementConcept,verbose_name = "Data Element Concept",blank=True,null=True)
-    valueDomain = models.ForeignKey(aristotle.models.ValueDomain,verbose_name = "Value Domain",blank=True,null=True)
-    outcomeArea = models.ForeignKey('OutcomeArea',blank=True,null=True)
+    dataElementConcept = models.ForeignKey(
+        aristotle.models.DataElementConcept,
+        verbose_name = "Data Element Concept",
+        blank=True,
+        null=True
+    )
+    valueDomain = models.ForeignKey(
+        aristotle.models.ValueDomain,
+        verbose_name = "Value Domain",
+        blank=True,
+        null=True
+    )
+    outcomeArea = models.ForeignKey('OutcomeArea', blank=True, null=True)
 
-    indicatorType = models.ForeignKey(IndicatorType,blank=True,null=True)
-    numerators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_numerator")
-    denominators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_demoninator")
-    disaggregators = models.ManyToManyField(aristotle.models.DataElement,related_name="as_disaggregator")
+    indicatorType = models.ForeignKey(IndicatorType, blank=True, null=True)
+    numerators = models.ManyToManyField(
+        aristotle.models.DataElement,
+        related_name="as_numerator",
+        blank=True
+    )
+    denominators = models.ManyToManyField(
+        aristotle.models.DataElement,
+        related_name="as_demoninator",
+        blank=True
+    )
+    disaggregators = models.ManyToManyField(
+        aristotle.models.DataElement,
+        related_name="as_disaggregator",
+        blank=True
+    )
 
     numerator_description = models.TextField(blank=True)
     numerator_computation = models.TextField(blank=True)
