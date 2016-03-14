@@ -1,0 +1,36 @@
+- model: aristotle_mdr_help.concepthelp
+  fields:
+    app_label: comet
+    concept_type: indicator
+    language: en
+    brief: A statement that specifically defines the target, standard, or the
+        ideal result against which an [[indicator]] is to be assessed.
+    offical_definition: A health indicator is a single measure that is reported on regularly
+        and that provides relevant and actionable information about population health
+        and/or health system performance and characteristics.
+    official_reference: Canadian Institute for Health Information
+    official_link: https://www.cihi.ca/en/health-system-performance/performance-reporting/indicators
+    body: >
+        <p>A health indicator is a single measure that is reported on regularly
+        and that provides relevant and actionable information about population
+        health and/or health system performance and characteristics.
+        An indicator can provide comparable information, as well as track 
+        progress and performance over time.
+        </p>
+        <p>Health indicators support provinces/territories, regional health
+        authorities and facilities as they monitor the health of their populations
+        and track how well their local health systems function.
+            <cite>
+                <a href="https://www.cihi.ca/en/health-system-performance/performance-reporting/indicators">
+                Canadian Institute for Health Information - Indicators</a>
+            </cite>
+        </p>
+        <p>The drivers for standard development arise from the
+        need for better information - whether it is statistical, administrative,
+        clinical or other information. This ensures the data used in statistics
+        is compatible and it facilitates National and International interoperability.
+        <cite>
+            <a href="http://meteor.aihw.gov.au/content/index.phtml/itemId/400043">
+            Australian Institute for Health and Welfare - About Indicators</a>
+        </cite>
+        </p>

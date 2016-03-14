@@ -26,7 +26,8 @@ class Indicator(aristotle.models.concept):
         blank=True,
         null=True
     )
-    outcomeArea = models.ForeignKey('OutcomeArea', blank=True, null=True)
+    #outcomeArea = models.ForeignKey('OutcomeArea', blank=True, null=True)
+    outcome_areas = models.ManyToManyField('OutcomeArea',related_name="indicators",blank=True,null=True)
 
     indicatorType = models.ForeignKey(IndicatorType, blank=True, null=True)
     numerators = models.ManyToManyField(
@@ -78,6 +79,7 @@ class QualityStatement(aristotle.models.concept):
 class Framework(aristotle.models.unmanagedObject):
     template = "comet/framework.html"
     parentFramework = models.ForeignKey('Framework',blank=True,null=True,related_name="childFrameworks")
+    indicators = models.ManyToManyField(Indicator,related_name="frameworks",blank=True,null=True)
 
 def defaultData():
     print "Add aristotle defaults"

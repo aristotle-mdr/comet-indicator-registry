@@ -2,9 +2,11 @@
 {% load aristotle_tags %}
 
 {% block objSpecific %}
-{% if item.outcomeArea %}
-<h2>Outcome Area</h2>
-{% include "aristotle_mdr/helpers/itemLink.html" with item=item.outcomeArea showType=False %}
+{% if item.outcome_areas %}
+<h2>Outcome Areas</h2>
+{% for outcome in item.outcome_areas %}
+    {% include "aristotle_mdr/helpers/itemLink.html" with item=outcome showType=False %}
+{% endfor %}
 {% endif %}
 
 {% if item.rationale %}
