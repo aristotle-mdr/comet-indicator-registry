@@ -4,9 +4,18 @@
 {% block objSpecific %}
 {% if item.outcome_areas %}
 <h2>Outcome Areas</h2>
-{% for outcome in item.outcome_areas %}
-    {% include "aristotle_mdr/helpers/itemLink.html" with item=outcome showType=False %}
+    <a href="{% url 'comet:indicator_alter_outcomeareas' item.id %}"
+        data-toggle="modal" data-target="#editIndicatorsPopover"
+        class="pull-right btn btn-default btn-sm">
+        <i class="fa fa-plus"></i>
+        Add Outcome area
+    </a>
+    {% bootstrap_modal 'editIndicatorsPopover' %}
+<ul>
+{% for outcome in item.outcome_areas.all %}
+    <li>{% include "aristotle_mdr/helpers/inlineDetails.html" with item=outcome showType=False %}</li>
 {% endfor %}
+</ul>
 {% endif %}
 
 {% if item.rationale %}
