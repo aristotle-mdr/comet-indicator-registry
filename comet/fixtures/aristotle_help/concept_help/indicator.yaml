@@ -3,8 +3,9 @@
     app_label: comet
     concept_type: indicator
     language: en
-    brief: A statement that specifically defines the target, standard, or the
-        ideal result against which an [[indicator]] is to be assessed.
+    brief: An indicator is a single measure that is reported on regularly
+        and that provides relevant and actionable information about population health
+        and/or health system performance.
     offical_definition: A health indicator is a single measure that is reported on regularly
         and that provides relevant and actionable information about population health
         and/or health system performance and characteristics.
