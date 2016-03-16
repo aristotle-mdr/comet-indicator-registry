@@ -34,3 +34,17 @@
             Australian Institute for Health and Welfare - About Indicators</a>
         </cite>
         </p>
+    creation_tip: 
+        <p>
+        Indicators should be clearly defined and specify the [[aristotle_mdr.DataElement|s]]
+        used in their calculations.
+        If the resulting value type of an Indicator is known ahead of time it can
+        be specified by attaching a [[aristotle_mdr.ValueDomain]] to clearly
+        code the value and provides a valuable linkage to other similar indicators.
+        </p>
+        
+        <p>
+        Once an indicator has been saved, numerator and denominator
+        [[aristotle_mdr.DataElement|s]] as well as [[Outcome areas]] can be
+        attached from the Indicator page.
+        </p>
