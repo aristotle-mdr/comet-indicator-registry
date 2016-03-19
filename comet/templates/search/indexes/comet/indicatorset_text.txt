@@ -1,5 +1,5 @@
 {% include "search/indexes/aristotle_mdr/managedobject_text.txt" %}
 
 {% for i in object.indicators.all %}
-    {% i.name %}
+    {{ i.name }}
 {% endfor %}
