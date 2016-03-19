@@ -13,9 +13,9 @@ setup(
     packages=['comet'],
     include_package_data=True,
     license='BSD Licence',
-    description='Pythias is a extension for the Aristotle MetaData Registry that adds adding user management, including password expiry, and lockout functionality.',
+    description='',
     long_description=README,
-    url='https://github.com/aristotle-mdr/pythias-user-management',
+    url='https://github.com/aristotle-mdr/comet-indicator-registry',
     author='Samuel Spencer',
     author_email='sam@sqbl.org',
     classifiers=[
@@ -29,6 +29,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires = [
-        'aristotle_mdr',
+        'aristotle-metadata-registry',
     ]
 )
