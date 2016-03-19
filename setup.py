@@ -30,6 +30,5 @@ setup(
     ],
     install_requires = [
         'django-aristotle-metadata-registry',
-        'django-axes'
     ]
 )
