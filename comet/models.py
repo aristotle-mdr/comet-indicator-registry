@@ -76,7 +76,7 @@ class QualityStatement(aristotle.models.concept):
     implementationStartDate = models.DateField(blank=True,null=True)
     implementationEndDate = models.DateField(blank=True,null=True)
 
-class Framework(aristotle.models.unmanagedObject):
+class Framework(aristotle.models.concept):
     template = "comet/framework.html"
     parentFramework = models.ForeignKey('Framework',blank=True,null=True,related_name="childFrameworks")
     indicators = models.ManyToManyField(Indicator,related_name="frameworks",blank=True,null=True)
@@ -100,6 +100,3 @@ def defaultData():
     print "Adding indicator set types"
     for name,desc in indicatorSetTypes:
         ist,created = IndicatorSetType.objects.get_or_create(name=name,definition=desc)
-
-def testData():
-    pass
