@@ -82,14 +82,14 @@ class Framework(aristotle.models.concept):
     indicators = models.ManyToManyField(Indicator,related_name="frameworks",blank=True,null=True)
 
 def defaultData():
-    print "Add aristotle defaults"
+    print("Add aristotle defaults")
     aristotle.models.defaultData()
     indicatorTypes = [
        ("Indicator",""),
        ("Output measure",""),
        ("Progress measure",""),
        ]
-    print "Adding indicator types"
+    print("Adding indicator types")
     for name,desc in indicatorTypes:
         it,created = IndicatorType.objects.get_or_create(name=name,definition=desc)
     indicatorSetTypes = [
@@ -97,6 +97,6 @@ def defaultData():
        ("COAG-NP","The Council of Australian Governments (COAG) has agreed to a new form of payment called National Partnership (NP) payments to fund specific projects and to facilitate and/or reward States that deliver on nationally-significant reforms."),
        ("ROGS","The Review of Government Service Provision was established in 1993 by Heads of government (now the Council of Australian Governments or COAG) to provide information on the effectiveness and efficiency of government services in Australia. A Steering Committee, comprising senior representatives from the central agencies of all governments, manages the Review with the assistance of a Secretariat provided by the Productivity Commission."),
        ]
-    print "Adding indicator set types"
+    print("Adding indicator set types")
     for name,desc in indicatorSetTypes:
         ist,created = IndicatorSetType.objects.get_or_create(name=name,definition=desc)
