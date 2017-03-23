@@ -19,7 +19,7 @@ before_script:
   - psql -c 'create database aristotle_test_db;' -U postgres
 
 install:
-  - if [[ $DB == postgres ]]; then pip install -q psycopg2 --quiet --use-mirrors; fi
+  - if [[ $DB == postgres ]]; then pip install -q psycopg2 --quiet; fi
   - "pip install -r requirements.txt"
   - "pip install -r requirements.test.txt"
   - "pip install ."

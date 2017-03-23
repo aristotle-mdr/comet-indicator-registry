@@ -3,4 +3,3 @@
 coveralls
 whoosh
 django_tools
-psycopg2
