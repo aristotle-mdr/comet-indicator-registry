@@ -10,20 +10,27 @@ register_concept(comet.models.Indicator,
         ('Metadata', {'fields': ['outcome_areas','indicatorType']}),
         ('Components', {'fields': ['dataElementConcept','valueDomain']}),
         ('Computation', {'fields': ['numerators','denominators','disaggregators']}),
-        ]
-    )
+    ]
+)
 
 
 register_concept(comet.models.QualityStatement,
     extra_fieldsets = [
-            ('Data Quality Guidelines',
-                {'fields': ['timeliness','accessibility','interpretability','relevance','accuracy','coherence']}),
-            ('Implementation dates',
-                {'fields': ['implementationStartDate','implementationEndDate']}),
+        ('Data Quality Guidelines',
+            {'fields': ['timeliness','accessibility','interpretability','relevance','accuracy','coherence']}
+        ),
+        ('Implementation dates',
+            {'fields': ['implementationStartDate','implementationEndDate']}
+        ),
+    ]
+)
+
+
+register_concept(comet.models.Framework,
+    extra_fieldsets = [
+        ('Data Quality Guidelines', {'fields': ['parentFramework','indicators']}),
     ]
 )
 
 admin.site.register(comet.models.IndicatorSetType)
 admin.site.register(comet.models.IndicatorType)
-
-admin.site.register(comet.models.Framework)
