@@ -1,5 +1,6 @@
-from django.contrib import admin
 import comet
+import reversion
+from django.contrib import admin
 from aristotle_mdr.register import register_concept
 
 register_concept(comet.models.IndicatorSet)
@@ -34,3 +35,6 @@ register_concept(comet.models.Framework,
 
 admin.site.register(comet.models.IndicatorSetType)
 admin.site.register(comet.models.IndicatorType)
+
+reversion.revisions.register(comet.models.IndicatorSetType)
+reversion.revisions.register(comet.models.IndicatorType)
