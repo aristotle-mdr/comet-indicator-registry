@@ -37,7 +37,7 @@ class Indicator(aristotle.models.concept):
     )
     denominators = models.ManyToManyField(
         aristotle.models.DataElement,
-        related_name="as_demoninator",
+        related_name="as_denominator",
         blank=True
     )
     disaggregators = models.ManyToManyField(
