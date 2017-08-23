@@ -13,6 +13,8 @@ def gen_indicatorset_uuid(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
+    replaces = [(b'comet', '0002_indicatorsettype_uuid'), (b'comet', '0003_auto_20170714_1609')]
+
     dependencies = [
         ('comet', '0001_squashed_0008_fix_concept_fields'),
     ]
@@ -27,8 +29,13 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='indicatorsettype',
             name='uuid',
-            field=models.SlugField(default=uuid.uuid1, editable=False, unique=True, null=False,
+            field=models.UUIDField(default=uuid.uuid1, editable=False, unique=True, null=False,
                 help_text='Universally-unique Identifier. Uses UUID1 as this improves uniqueness and tracking between registries'
             ),
+        ),
+        migrations.AlterField(
+            model_name='indicator',
+            name='denominators',
+            field=models.ManyToManyField(related_name='as_denominator', to='aristotle_mdr.DataElement', blank=True),
         ),
     ]
