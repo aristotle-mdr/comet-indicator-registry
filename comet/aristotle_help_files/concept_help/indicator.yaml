@@ -4,13 +4,17 @@
     concept_type: indicator
     language: en
     brief: An indicator is a single measure that is reported on regularly
-        and that provides relevant and actionable information about population health
-        and/or health system performance.
-    offical_definition: A health indicator is a single measure that is reported on regularly
-        and that provides relevant and actionable information about population health
-        and/or health system performance and characteristics.
-    official_reference: Canadian Institute for Health Information
-    official_link: https://www.cihi.ca/en/health-system-performance/performance-reporting/indicators
+        and that provides relevant and actionable information about population or system performance.
+    offical_definition: A particular characteristic or dimension used to measure intended changes 
+        defined by an organizational unit’s results framework. Performance indicators 
+        are used to observe progress and to measure actual results compared to expected 
+        results. They serve to answer “how” or “whether” a unit is progressing towards 
+        its objectives, rather than “why” or “why not” such progress is being made. 
+        
+        Performance indicators are usually expressed in quantifiable terms, and should 
+        be objective and measurable (e.g., numeric values, percentages, scores, and indices).
+    official_reference: Handbook on Monitoring and Evaluating for Results. United Nations Development Programme, Evaluation Office, NY, 2002.
+    official_link: http://web.undp.org/evaluation/documents/handbook/me-handbook.pdf
     body: >
         <p>A health indicator is a single measure that is reported on regularly
         and that provides relevant and actionable information about population

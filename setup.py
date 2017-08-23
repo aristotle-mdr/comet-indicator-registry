@@ -17,7 +17,7 @@ setup(
     long_description=README,
     url='https://github.com/aristotle-mdr/comet-indicator-registry',
     author='Samuel Spencer',
-    author_email='sam@sqbl.org',
+    author_email='sam@aristotlementadata.com',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -29,6 +29,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires = [
-        'aristotle-metadata-registry',
+        'aristotle-metadata-registry>=1.5.5',
     ]
 )

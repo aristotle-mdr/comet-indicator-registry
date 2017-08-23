@@ -13,6 +13,10 @@ class IndicatorType(aristotle.models.concept):
 
 # Subclassing from DataElement causes indicators to present as DataElements, which isn't quite right.
 class Indicator(aristotle.models.concept):
+    """
+    An indicator is a single measure that is reported on regularly
+    and that provides relevant and actionable information about population or system performance.
+    """
     template = "comet/indicator.html"
     dataElementConcept = models.ForeignKey(
         aristotle.models.DataElementConcept,
@@ -26,8 +30,7 @@ class Indicator(aristotle.models.concept):
         blank=True,
         null=True
     )
-    #outcomeArea = models.ForeignKey('OutcomeArea', blank=True, null=True)
-    outcome_areas = models.ManyToManyField('OutcomeArea',related_name="indicators",blank=True,null=True)
+    outcome_areas = models.ManyToManyField('OutcomeArea',related_name="indicators",blank=True)
 
     indicatorType = models.ForeignKey(IndicatorType, blank=True, null=True)
     numerators = models.ManyToManyField(
@@ -79,7 +82,7 @@ class QualityStatement(aristotle.models.concept):
 class Framework(aristotle.models.concept):
     template = "comet/framework.html"
     parentFramework = models.ForeignKey('Framework',blank=True,null=True,related_name="childFrameworks")
-    indicators = models.ManyToManyField(Indicator,related_name="frameworks",blank=True,null=True)
+    indicators = models.ManyToManyField(Indicator,related_name="frameworks",blank=True)
 
 def defaultData():
     print("Add aristotle defaults")
