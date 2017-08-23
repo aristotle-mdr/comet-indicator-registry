@@ -13,7 +13,7 @@ def gen_indicatorset_uuid(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    replaces = [(b'comet', '0002_indicatorsettype_uuid'), (b'comet', '0003_auto_20170714_1609')]
+    replaces = [('comet', '0002_indicatorsettype_uuid'), ('comet', '0003_auto_20170714_1609')]
 
     dependencies = [
         ('comet', '0001_squashed_0008_fix_concept_fields'),
