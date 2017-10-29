@@ -9,20 +9,21 @@ services:
  - postgresql
 
 env:
-  - DJ=1.8 DB=sqlitefile
   - DJ=1.8 DB=postgres
-  - DJ=1.10 DB=sqlitefile
-  - DJ=1.10 DB=postgres
+  - DJ=1.10 DB=postgres ARISTOTLE_VERSION=1.5
+  - DJ=1.10 DB=postgres ARISTOTLE_VERSION=develop
 
 before_script:
   - psql -c 'create database aristotle_test_db;' -U postgres
 
 install:
+  - pip install tox
   - if [[ $DB == postgres ]]; then pip install -q psycopg2 --quiet; fi
   - "pip install -r requirements.txt"
   - "pip install -r requirements.test.txt"
   - "pip install ."
   - pip install -q Django==$DJ
+  - tox -e dj$DJANGO_VERSION-test-db-$DB-search-$SEARCH-aristotle-$ARISTOTLE_VERSION --skip-missing-interpreters
 
 # command to run tests
 script:

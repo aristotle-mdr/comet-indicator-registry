@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-aristotle-comet-indicator-registry',
-    version='0.1',
+    version='1.6',
     packages=['comet'],
     include_package_data=True,
     license='BSD Licence',
@@ -29,6 +29,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires = [
-        'aristotle-metadata-registry>=1.5.5',
+        'aristotle-metadata-registry>=1.6.0',
     ]
 )
