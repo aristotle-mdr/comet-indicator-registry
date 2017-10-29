@@ -10,7 +10,7 @@ services:
 
 env:
   - DJ=1.8 DB=postgres
-  - DJ=1.10 DB=postgres ARISTOTLE_VERSION=1.5
+  - DJ=1.10 DB=postgres ARISTOTLE_VERSION=1.6
   - DJ=1.10 DB=postgres ARISTOTLE_VERSION=develop
 
 before_script:
@@ -31,3 +31,6 @@ script:
 after_success:
   - coveralls
 
+matrix:
+  allow_failures:
+    - env: DJ=1.10 DB=postgres ARISTOTLE_VERSION=develop
