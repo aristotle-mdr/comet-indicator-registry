@@ -9,12 +9,13 @@ services:
  - postgresql
 
 env:
-  - DJ=1.8 DB=postgres
-  - DJ=1.10 DB=postgres ARISTOTLE_VERSION=1.5
+  - DJ=1.8  DB=postgres ARISTOTLE_VERSION=1.6
   - DJ=1.10 DB=postgres ARISTOTLE_VERSION=1.6
   - DJ=1.10 DB=postgres ARISTOTLE_VERSION=develop
 
 before_script:
+# We only test elasticsearch, and a small setup time is recommended
+  - sleep 10; 
   - psql -c 'create database aristotle_test_db;' -U postgres
 
 install:
@@ -23,7 +24,7 @@ install:
 
 # command to run tests
 script:
-  - tox -e dj$DJANGO_VERSION-test-db-$DB-search-$SEARCH-aristotle-$ARISTOTLE_VERSION --skip-missing-interpreters
+  - tox -e dj$DJANGO_VERSION-test-db-$DB-search-elastic-aristotle-$ARISTOTLE_VERSION --skip-missing-interpreters
 after_success:
   - coveralls
 

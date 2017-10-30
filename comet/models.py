@@ -6,6 +6,7 @@ from model_utils import Choices
 
 from aristotle_mdr.models import RichTextField
 import aristotle_mdr as aristotle
+from aristotle_mdr.fields import ConceptForeignKey, ConceptManyToManyField
 
 
 class IndicatorType(aristotle.models.concept):
@@ -18,32 +19,32 @@ class Indicator(aristotle.models.concept):
     and that provides relevant and actionable information about population or system performance.
     """
     template = "comet/indicator.html"
-    dataElementConcept = models.ForeignKey(
+    dataElementConcept = ConceptForeignKey(
         aristotle.models.DataElementConcept,
         verbose_name = "Data Element Concept",
         blank=True,
         null=True
     )
-    valueDomain = models.ForeignKey(
+    valueDomain = ConceptForeignKey(
         aristotle.models.ValueDomain,
         verbose_name = "Value Domain",
         blank=True,
         null=True
     )
-    outcome_areas = models.ManyToManyField('OutcomeArea',related_name="indicators",blank=True)
+    outcome_areas = ConceptManyToManyField('OutcomeArea',related_name="indicators",blank=True)
 
-    indicatorType = models.ForeignKey(IndicatorType, blank=True, null=True)
-    numerators = models.ManyToManyField(
+    indicatorType = ConceptForeignKey(IndicatorType, blank=True, null=True)
+    numerators = ConceptManyToManyField(
         aristotle.models.DataElement,
         related_name="as_numerator",
         blank=True
     )
-    denominators = models.ManyToManyField(
+    denominators = ConceptManyToManyField(
         aristotle.models.DataElement,
         related_name="as_denominator",
         blank=True
     )
-    disaggregators = models.ManyToManyField(
+    disaggregators = ConceptManyToManyField(
         aristotle.models.DataElement,
         related_name="as_disaggregator",
         blank=True
@@ -62,7 +63,7 @@ class IndicatorSetType(aristotle.models.unmanagedObject):
 
 class IndicatorSet(aristotle.models.concept):
     template = "comet/indicatorset.html"
-    indicators = models.ManyToManyField(Indicator,related_name="indicatorSets",blank=True,null=True)
+    indicators = ConceptManyToManyField(Indicator,related_name="indicatorSets",blank=True,null=True)
     indicatorSetType = models.ForeignKey(IndicatorSetType,blank=True,null=True)
 
 class OutcomeArea(aristotle.models.concept):
@@ -81,25 +82,25 @@ class QualityStatement(aristotle.models.concept):
 
 class Framework(aristotle.models.concept):
     template = "comet/framework.html"
-    parentFramework = models.ForeignKey('Framework',blank=True,null=True,related_name="childFrameworks")
-    indicators = models.ManyToManyField(Indicator,related_name="frameworks",blank=True)
+    parentFramework = ConceptForeignKey('Framework',blank=True,null=True,related_name="childFrameworks")
+    indicators = ConceptManyToManyField(Indicator,related_name="frameworks",blank=True)
 
-def defaultData():
-    print("Add aristotle defaults")
-    aristotle.models.defaultData()
-    indicatorTypes = [
-       ("Indicator",""),
-       ("Output measure",""),
-       ("Progress measure",""),
-       ]
-    print("Adding indicator types")
-    for name,desc in indicatorTypes:
-        it,created = IndicatorType.objects.get_or_create(name=name,definition=desc)
-    indicatorSetTypes = [
-       ("COAG-IGA","This includes indicators outlined in the Council of Australian government (COAG) Intergovernmental Agreement (IGA) on Federal Financial Relations relevant to national reporting on health, housing assistance and community services. The overall objective of these agreements is the improvement of the well-being of all Australians."),
-       ("COAG-NP","The Council of Australian Governments (COAG) has agreed to a new form of payment called National Partnership (NP) payments to fund specific projects and to facilitate and/or reward States that deliver on nationally-significant reforms."),
-       ("ROGS","The Review of Government Service Provision was established in 1993 by Heads of government (now the Council of Australian Governments or COAG) to provide information on the effectiveness and efficiency of government services in Australia. A Steering Committee, comprising senior representatives from the central agencies of all governments, manages the Review with the assistance of a Secretariat provided by the Productivity Commission."),
-       ]
-    print("Adding indicator set types")
-    for name,desc in indicatorSetTypes:
-        ist,created = IndicatorSetType.objects.get_or_create(name=name,definition=desc)
+# def defaultData():
+#     print("Add aristotle defaults")
+#     aristotle.models.defaultData()
+#     indicatorTypes = [
+#       ("Indicator",""),
+#       ("Output measure",""),
+#       ("Progress measure",""),
+#       ]
+#     print("Adding indicator types")
+#     for name,desc in indicatorTypes:
+#         it,created = IndicatorType.objects.get_or_create(name=name,definition=desc)
+#     indicatorSetTypes = [
+#       ("COAG-IGA","This includes indicators outlined in the Council of Australian government (COAG) Intergovernmental Agreement (IGA) on Federal Financial Relations relevant to national reporting on health, housing assistance and community services. The overall objective of these agreements is the improvement of the well-being of all Australians."),
+#       ("COAG-NP","The Council of Australian Governments (COAG) has agreed to a new form of payment called National Partnership (NP) payments to fund specific projects and to facilitate and/or reward States that deliver on nationally-significant reforms."),
+#       ("ROGS","The Review of Government Service Provision was established in 1993 by Heads of government (now the Council of Australian Governments or COAG) to provide information on the effectiveness and efficiency of government services in Australia. A Steering Committee, comprising senior representatives from the central agencies of all governments, manages the Review with the assistance of a Secretariat provided by the Productivity Commission."),
+#       ]
+#     print("Adding indicator set types")
+#     for name,desc in indicatorSetTypes:
+#         ist,created = IndicatorSetType.objects.get_or_create(name=name,definition=desc)
