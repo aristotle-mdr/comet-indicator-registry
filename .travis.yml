@@ -24,7 +24,7 @@ install:
 
 # command to run tests
 script:
-  - tox -e dj$DJANGO_VERSION-test-db-$DB-search-elastic-aristotle$ARISTOTLE_VERSION --skip-missing-interpreters --workdir /tmp/tox
+  - tox -e dj$DJANGO_VERSION-test-db-$DB-search-whoosh-aristotle$ARISTOTLE_VERSION --skip-missing-interpreters --workdir /tmp/tox
 after_success:
   - coveralls
 
