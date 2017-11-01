@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -9,8 +9,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-aristotle-comet-indicator-registry',
-    version='0.1',
-    packages=['comet'],
+    version='1.6',
+    packages=find_packages(),
     include_package_data=True,
     license='BSD Licence',
     description='',
@@ -29,6 +29,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires = [
-        'aristotle-metadata-registry>=1.5.5',
+        'aristotle-metadata-registry>=1.6.0',
     ]
 )
